@@ -71,8 +71,8 @@ utils.captureMouse = function(element, callback = (type, event) => {}) {
             x -= offsetLeft;
             y -= offsetTop;
 
-            mouse.x = x;
-            mouse.y = y;
+            mouse.x = x / window.devicePixelRatio;
+            mouse.y = y / window.devicePixelRatio;
             mouse.event = event;
             callback("mousemove", mouse);
         },
@@ -102,7 +102,7 @@ utils.captureClick = function(element, callback = (type, event) => {}) {
         }
         x -= offsetLeft;
         y -= offsetTop;
-        return { x, y };
+        return { x: x / window.devicePixelRatio, y: y / window.devicePixelRatio };
     }
     const mousedown = element.addEventListener(
         "mousedown",
@@ -180,7 +180,7 @@ utils.captureTouch = function(element, callback = (type, event) => {}) {
         }
         x -= offsetLeft;
         y -= offsetTop;
-        return { x, y };
+        return { x: x / window.devicePixelRatio, y: y / window.devicePixelRatio };
     }
     const touchstart = element.addEventListener(
         "touchstart",

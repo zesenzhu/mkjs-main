@@ -11,40 +11,37 @@ const Canvas: React.FC = () => {
       window.cancelAnimationFrame(animatedFrame);
     }
     if (canvasRef.current) {
-      console.log(ctx.lineWidth);
       canvasRef.current.height =
         canvasRef.current?.clientHeight / window.devicePixelRatio;
       canvasRef.current.width =
         canvasRef.current?.clientWidth / window.devicePixelRatio;
       ctx.strokeStyle = "red";
-      // ctx.lineWidth = 2;
+      ctx.fillStyle = "red";
+      ctx.lineWidth = 0.1;
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
       let list = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 200; i++) {
         const star = new Star({ ctx });
         list.push(star);
-        console.log(star);
       }
+      console.log(canvasRef.current, canvasRef.current?.clientHeight);
+
       animatedFrame = draw(list);
     }
   };
   const draw = (list: StarInterface[]): number => {
-    if (durationRef.current === 0) {
-      ctxRef?.current?.clearRect(
-        0,
-        0,
-        canvasRef.current?.width as number,
-        canvasRef.current?.height as number
-      );
-      list.forEach((c) => {
-        c.draw();
-      });
-      durationRef.current = 1;
-    } else {
-      durationRef.current--;
-    }
+    ctxRef?.current?.clearRect(
+      0,
+      0,
+      canvasRef.current?.width as number,
+      canvasRef.current?.height as number
+    );
+    list.forEach((c) => {
+      c.draw();
+    });
 
+    Star.connectStarLine(ctxRef.current as CanvasRenderingContext2D);
     return window.requestAnimationFrame(draw.bind(this, list));
   };
   useEffect(() => {
