@@ -1,5 +1,3 @@
-import canvasUtils from "../../../utils/canvasUtils";
-
 type PreXYType = {
   x: number;
   y: number;

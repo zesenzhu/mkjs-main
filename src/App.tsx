@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import UseMemo from "./pages/memoized";
 import UseCallback from "./pages/useCallback";
 import { Tabs } from "antd";
 import "antd/dist/antd.css";

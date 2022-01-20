@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Star, { StarInterface } from "./star";
 let animatedFrame: null | number = null;
 const Canvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const ctxRef = useRef<CanvasRenderingContext2D | null>();
-  const durationRef = useRef(0);
   const resize = (ctx: CanvasRenderingContext2D) => {
     if (animatedFrame) {
       window.cancelAnimationFrame(animatedFrame);
