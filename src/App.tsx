@@ -10,11 +10,11 @@ function App() {
   const TabList = [
     {
       children: <Palette />,
-      tab: "tab1",
+      tab: "线条绘画",
     },
     {
       children: <Star />,
-      tab: "tab2",
+      tab: "自动连接",
     },
     {
       children: <UseCallback />,
