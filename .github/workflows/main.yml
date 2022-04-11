@@ -34,7 +34,7 @@ jobs:
 
             # 构建 prd-dev
             yarn ;
-            npm run publish; 
+            npm run prepublishOnly; 
 
             # 启动 docker
             cd ./docker
