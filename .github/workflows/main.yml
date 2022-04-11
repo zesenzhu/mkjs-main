@@ -33,7 +33,7 @@ jobs:
 
 
             # 构建 prd-dev
-            yarn i;
+            yarn ;
             npm run publish; 
 
             # 启动 docker
