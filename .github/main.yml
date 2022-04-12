@@ -11,21 +11,8 @@ on:
       - "v*"
 
 jobs:
-  steps: # 步骤
-    # 下载源码
-    - name: Checkout
-      uses: actions/checkout@master
-
-    # 打包构建
-    - name: Build
-      uses: actions/setup-node@master
-    # - run: npm install
-    - name: Build project
-    - run: npm i -g npminstall && npminstall
-    # 将app config文件打包压缩为release.tgz
-    - run: npm run prepublishOnly
   # 打包及发布
-  deploy:
+  build-and-deploy:
     # 运行环境
     runs-on: ubuntu-latest
     steps: # 步骤
@@ -44,7 +31,7 @@ jobs:
             # git config pull.rebase true;
             git pull origin master;
 
-
+            # 在服务区打包,性能不好
             # 构建 prd-dev
             yarn ;
             npm run prepublishOnly; 
