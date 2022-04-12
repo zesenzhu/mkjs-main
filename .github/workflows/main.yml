@@ -24,7 +24,6 @@ jobs:
       - name: Build
         uses: actions/setup-node@master
       # - run: npm install
-      - name: Build project
       - run: npm i -g npminstall && npminstall
       # 将app config文件打包压缩为release.tgz
       - run: npm run prepublishOnly
