@@ -11,10 +11,10 @@ on:
       - "v*"
 
 jobs:
-  deploy:
+  build:
     # 运行环境
     runs-on: ubuntu-latest
-     
+
     steps: # 步骤
       # 下载源码
       - name: Checkout
