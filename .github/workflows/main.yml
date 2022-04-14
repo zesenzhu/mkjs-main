@@ -58,7 +58,7 @@ jobs:
 
             # 构建 prd-dev
             # yarn ;
-            # npm run prepublishOnly; 
+            # npm run build; 
 
             # 启动 docker
             cd ./docker
