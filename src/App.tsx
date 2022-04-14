@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import UseCallback from "./pages/useCallback";
+import Rxjs from "./pages/rxjs";
 import { Tabs } from "antd";
 import "antd/dist/antd.css";
 import Palette from "./pages/canvas/palette";
@@ -17,8 +17,8 @@ function App() {
       tab: "自动连接",
     },
     {
-      children: <UseCallback />,
-      tab: "tab3",
+      children: <Rxjs />,
+      tab: "rxjs使用",
     },
   ];
   return (
