@@ -51,7 +51,7 @@ jobs:
             git remote add origin git@github.com:zesenzhu/mkjs-main.git;
             # git config pull.rebase true;
             git config core.sparsecheckout true
-            echo "public" >> .git/info/sparse-checkout
+            echo "build" >> .git/info/sparse-checkout
             echo "docker" >> .git/info/sparse-checkout
             git pull origin master;
 
@@ -64,4 +64,5 @@ jobs:
             cd ./docker
             docker-compose build ; # 和 docker-compose.yml service 名字一致
             docker-compose up -d;
+            git remote remove origin
             rm -rf .git
