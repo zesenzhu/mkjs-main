@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Observable, Subject, fromEvent } from "rxjs";
 import { Timeline } from "antd";
 import { map } from "rxjs/operators";
@@ -38,7 +38,10 @@ export default function App() {
     // {a:1000} // 1000ms时
     // end // 3000ms时
     // done // 4000ms时
-  }, []);
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [data]);
   useEffect(() => {
     // 创建subject
     const subject = new Subject();
@@ -69,6 +72,9 @@ export default function App() {
     );
     // 输出 (示例中的数字以运行时为准): 'Event time: 7276.390000000001'
     const subscribe = example.subscribe((val) => console.log(val));
+    return () => {
+      subscribe.unsubscribe();
+    };
   }, []);
   return (
     <div>
