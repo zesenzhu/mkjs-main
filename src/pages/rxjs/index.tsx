@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Observable, Subject, fromEvent } from "rxjs";
 import { Timeline } from "antd";
 import { map } from "rxjs/operators";
 export default function App() {
-  const data = [
-    { time: 500, next: [1, 2, 3] },
-    { time: 1000, next: { a: 1000 } },
-    { time: 1500, next: "end" },
-    { time: 4000, complete: true },
-  ];
+  const data = useMemo(() => {
+    return [
+      { time: 500, next: [1, 2, 3] },
+      { time: 1000, next: { a: 1000 } },
+      { time: 1500, next: "end" },
+      { time: 4000, complete: true },
+    ];
+  }, []);
   const [list, setList] = useState<any>([]);
   useEffect(() => {
     // stream$尾部的$是表示当前这个变量是个ovservable
