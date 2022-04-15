@@ -48,6 +48,7 @@ jobs:
           port: ${{ secrets.PORT }} # 连接服务器参数
           script: | # 连接服务器后执行的命令
             cd /home/mkjs-main # 确保远程服务器必须有这个文件夹
+            git init
             git remote add origin git@github.com:zesenzhu/mkjs-main.git;
             # git config pull.rebase true;
             git config core.sparsecheckout true
