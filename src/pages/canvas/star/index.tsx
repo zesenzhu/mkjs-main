@@ -5,8 +5,16 @@ const Canvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const ctxRef = useRef<CanvasRenderingContext2D | null>();
-  const resize = (ctx: CanvasRenderingContext2D) => {
+  const resize = () => {
+    const ctx = ctxRef.current as CanvasRenderingContext2D;
+
     if (animatedFrame) {
+      ctx?.clearRect(
+        0,
+        0,
+        canvasRef.current?.width as number,
+        canvasRef.current?.height as number
+      );
       window.cancelAnimationFrame(animatedFrame);
     }
     if (canvasRef.current) {
@@ -24,12 +32,12 @@ const Canvas: React.FC = () => {
         const star = new Star({ ctx });
         list.push(star);
       }
-      console.log(canvasRef.current, canvasRef.current?.clientHeight);
+      console.log(animatedFrame, canvasRef.current, canvasRef.current?.width);
 
-      animatedFrame = draw(list);
+      draw(list);
     }
   };
-  const draw = (list: StarInterface[]): number => {
+  const draw = (list: StarInterface[]) => {
     ctxRef?.current?.clearRect(
       0,
       0,
@@ -41,17 +49,17 @@ const Canvas: React.FC = () => {
     });
 
     Star.connectStarLine(ctxRef.current as CanvasRenderingContext2D);
-    return window.requestAnimationFrame(draw.bind(this, list));
+    animatedFrame = window.requestAnimationFrame(draw.bind(this, list));
   };
   useEffect(() => {
     if (canvasRef.current) {
-      const ctx = (ctxRef.current =
+      (ctxRef.current =
         canvasRef.current.getContext("2d")) as CanvasRenderingContext2D;
 
-      resize(ctx);
+      resize();
 
       window.addEventListener("resize", () => {
-        resize(ctx);
+        resize();
       });
       // draw();
     }

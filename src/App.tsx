@@ -22,7 +22,7 @@ function App() {
     },
   ];
   return (
-    <div className={"App"}>
+    <div className={"App"} id={"subapp-viewport"}>
       <Tabs
         style={{ height: "100%" }}
         defaultActiveKey={TabList[0].tab}
