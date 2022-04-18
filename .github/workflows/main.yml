@@ -50,7 +50,7 @@ jobs:
             cd /home/mkjs-main # 确保远程服务器必须有这个文件夹
             git init
             git remote add origin git@github.com:zesenzhu/mkjs-main.git;
-            # git config pull.rebase true;
+            git config pull.rebase true;
             git config core.sparsecheckout true
             echo "build" >> .git/info/sparse-checkout
             echo "docker" >> .git/info/sparse-checkout
