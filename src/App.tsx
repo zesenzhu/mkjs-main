@@ -5,7 +5,6 @@ import { Tabs } from "antd";
 import "antd/dist/antd.css";
 import Palette from "./pages/canvas/palette";
 import Star from "./pages/canvas/star";
-import { BrowserRouter } from "react-router-dom";
 const { TabPane } = Tabs;
 function App() {
   const TabList = [
