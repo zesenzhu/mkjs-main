@@ -67,4 +67,4 @@ jobs:
             # 启动 docker
             cd ./docker
             docker-compose build ; # 和 docker-compose.yml service 名字一致
-            docker-compose up -d  --no-recreate;
+            docker-compose  -d -f docker-compose.yml  --no-recreate up;
