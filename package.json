@@ -99,7 +99,7 @@
     "test": "node scripts/test.js",
     "lint": "eslint --ext js,ts,tsx, src --max-warnings 5",
     "test:nowatch": "cross-env CI=true npm run test",
-    "prepublishOnly": "npm run lint && npm run build",
+    "prepublishOnly": "npm run build",
     "publish": "npm run prepublishOnly && tar -zcvf release.tgz docker build package.json README.md"
   },
   "eslintConfig": {
