@@ -336,4 +336,5 @@ const getPixelRatio = (context = {}) => {
   return (window.devicePixelRatio || 1) / backingStore;
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { ...utils, getPixelRatio };
