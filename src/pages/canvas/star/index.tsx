@@ -9,7 +9,6 @@ const Canvas: React.FC = () => {
   const ctxRef = useRef<CanvasRenderingContext2D | null>();
   const resize = () => {
     const ctx = ctxRef.current as CanvasRenderingContext2D;
-    const ratio = utils.getPixelRatio(ctx);
 
     if (animatedFrame) {
       ctx?.clearRect(
