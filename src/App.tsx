@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Rxjs from "./pages/rxjs";
+import Study from "./pages/study";
 import { Tabs } from "antd";
 import "antd/dist/antd.css";
 import Palette from "./pages/canvas/palette";
@@ -19,6 +20,10 @@ function App() {
     {
       children: <Rxjs />,
       tab: "rxjs使用",
+    },
+    {
+      children: <Study />,
+      tab: "练习",
     },
     {
       children: <div id={"subapp-viewport"}></div>,

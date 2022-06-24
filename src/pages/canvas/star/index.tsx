@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import Star, { StarInterface } from "./star";
+import utils from "utils/canvasUtils";
+
 let animatedFrame: null | number = null;
 const Canvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
+  console.log(utils);
   const ctxRef = useRef<CanvasRenderingContext2D | null>();
   const resize = () => {
     const ctx = ctxRef.current as CanvasRenderingContext2D;
+    const ratio = utils.getPixelRatio(ctx);
 
     if (animatedFrame) {
       ctx?.clearRect(
@@ -19,12 +22,12 @@ const Canvas: React.FC = () => {
     }
     if (canvasRef.current) {
       canvasRef.current.height =
-        canvasRef.current?.clientHeight / window.devicePixelRatio;
+        canvasRef.current?.clientHeight * window.devicePixelRatio;
       canvasRef.current.width =
-        canvasRef.current?.clientWidth / window.devicePixelRatio;
+        canvasRef.current?.clientWidth * window.devicePixelRatio;
       ctx.strokeStyle = "red";
       ctx.fillStyle = "red";
-      ctx.lineWidth = 0.1;
+      ctx.lineWidth = 0.2;
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
       let list = [];
