@@ -44,15 +44,16 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 const argv = process.argv.slice(2);
 const writeStatsJson = argv.indexOf("--stats") !== -1;
 // 处理环境变量,打包的时候注入域名
-process.env.BUILD_HOST =
-  process.argv.find((c) => c.indexOf("--buildHost=") !== -1).split("=")[1] ||
-  "localhost";
-console.log(
-  "start",
-  process.env.BUILD_HOST,
-  process.argv,
-  process.env.npm_config_host
-);
+const haveHost = process.argv.find((c) => c.indexOf("--buildHost=") !== -1);
+if (haveHost) {
+  process.env.BUILD_HOST = haveHost.split("=")[1] || "localhost";
+  console.log(
+    "start",
+    process.env.BUILD_HOST,
+    process.argv,
+    process.env.npm_config_host
+  );
+}
 // Generate configuration
 const config = configFactory("production");
 
