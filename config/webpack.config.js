@@ -165,6 +165,13 @@ module.exports = function (webpackEnv) {
         ? "source-map"
         : false
       : isEnvDevelopment && "cheap-module-source-map",
+    devServer: {
+      disableHostCheck: false, // 关闭主机检查，保证子应用可以被主应用fetch到
+      headers: {
+        //因为qiankun内部请求都是fetch来请求资源，所以子应用必须允许跨域
+        "Access-Control-Allow-Origin": "*",
+      },
+    },
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
     entry:
