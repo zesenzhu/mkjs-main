@@ -1,34 +1,47 @@
 import React from "react";
 import "./App.css";
-import UseMemo from "./pages/memoized";
-import UseCallback from "./pages/useCallback";
+import Rxjs from "./pages/rxjs";
+import Study from "./pages/study";
 import { Tabs } from "antd";
 import "antd/dist/antd.css";
-import Canvas from "./pages/canvas/palette";
+import Palette from "./pages/canvas/palette";
+import Star from "./pages/canvas/star";
 const { TabPane } = Tabs;
 function App() {
-    console.log(<Canvas />, 'Canvas')
-    console.log(<div />, 'div')
     const TabList = [
         {
-            children: <Canvas />,
-            tab: "tab1",
+            children: <Palette />,
+            tab: "线条绘画",
         },
         {
-            children: <UseMemo />,
-            tab: "tab2",
+            children: <Star />,
+            tab: "自动连接",
         },
         {
-            children: <UseCallback />,
-            tab: "tab3",
+            children: <Rxjs />,
+            tab: "rxjs使用",
+        },
+        {
+            children: <Study />,
+            tab: "练习",
+        },
+        {
+            children: <div id={"subapp-viewport"}></div>,
+            tab: "子应用1",
+            onChange: () => {
+                window.history.pushState({}, "", "/micro_react");
+            },
         },
     ];
     return (
-        <div className={"App"}>
+        <div className={"App app2"}>
             <Tabs
                 style={{ height: "100%" }}
                 defaultActiveKey={TabList[0].tab}
-                onChange={(v) => console.log(v)}
+                onChange={(v) => {
+                    console.log(v);
+                    TabList.find((c) => c?.tab === v)?.onChange?.();
+                }}
             >
                 {TabList.map((c, i) => {
                     return (
