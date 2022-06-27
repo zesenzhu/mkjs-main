@@ -48,7 +48,12 @@ const haveHost = process.argv.find((c) => c.indexOf("buildHost=") !== -1);
 if (haveHost) {
   process.env.BUILD_HOST = haveHost.split("=")[1] || "localhost";
 }
-
+console.log(
+  "start",
+  process.env.BUILD_HOST,
+  process.argv,
+  process.env.npm_config_buildHost
+);
 // Generate configuration
 const config = configFactory("production");
 
