@@ -341,6 +341,9 @@ module.exports = function (webpackEnv) {
         }),
         "@/": paths.appSrc,
         "@utils": "../src/utils",
+        "@pages": "../src/pages",
+        "@res": "../src/res",
+        "@config": "../src/config",
         ...(modules.webpackAliases || {}),
       },
       plugins: [

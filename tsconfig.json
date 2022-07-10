@@ -20,12 +20,24 @@
   "noEmit": true,
   "jsx": "react-jsx",
   "baseUrl": "./src",
+  /**
+  需要在webpack.config.js中配置alias
+  */
   "paths": {
    "@/*": [
     "./*"
    ],
    "@utils/*": [
     "./utils/*"
+   ],
+   "@config/*": [
+    "./config/*"
+   ],
+   "@res/*": [
+    "./res/*"
+   ],
+   "@page/*": [
+    "./page/*"
    ],
   }
  },
