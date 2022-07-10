@@ -1,15 +1,15 @@
 // 动态注入,区分生产环境和开发环境,BUILD_HOST这个在start.js设置的,所以在运行yarn start的时候要带上--buildHost=${ip}
-const generateEnv = () => {
-  console.log(
-    "micro_app",
-    process.env.BUILD_HOST,
-    process.env.npm_config_buildHost
-  );
-  return (
-    (process.env.NODE_ENV === "production" && process.env.BUILD_HOST) ||
-    "localhost"
-  );
-};
+// const generateEnv = () => {
+//   console.log(
+//     "micro_app",
+//     process.env.BUILD_HOST,
+//     process.env.npm_config_buildHost
+//   );
+//   return (
+//     (process.env.NODE_ENV === "production" && process.env.BUILD_HOST) ||
+//     "localhost"
+//   );
+// };
 const microApps = [
   {
     name: "micro_react",
