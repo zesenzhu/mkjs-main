@@ -16,4 +16,4 @@ export const handleRoute = (router: RouteType) => {
   }
 };
 
-export default { handleRoute };
+// export default { handleRoute };

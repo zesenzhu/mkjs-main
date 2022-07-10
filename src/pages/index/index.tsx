@@ -5,7 +5,7 @@ import Config from "config";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import Content from "./Content";
-import { Routes, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const { Header, Footer, Sider } = Layout;
 const routers = Config.router;
 function App() {
