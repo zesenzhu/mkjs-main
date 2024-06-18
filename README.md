@@ -45,3 +45,5 @@ $ npm run npm:build
 # or
 $ yarn npm:build
 ```
+
+# 通过 github 流水线发布
