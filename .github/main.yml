@@ -1,6 +1,6 @@
 # 自动部署的名称
 name:
-  Publish And Deploy next
+  Publish And Deploy next 1
   # 监听push只有是提交tag才会部署
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - main
       - master
     tags:
-      - "v*"
+      - 'v*'
 
 jobs:
   # 打包及发布
