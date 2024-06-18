@@ -47,3 +47,5 @@ $ yarn npm:build
 ```
 
 # 通过 github 流水线发布
+
+需要通过打 tag：v\*来触发
